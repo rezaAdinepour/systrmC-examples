@@ -46,7 +46,7 @@ Basic sequential circuits like:
 
 ## Getting Started
 
-### 1. Install SystemC (v2.3.1a)
+### Install SystemC (v2.3.1a)
 
 You can go to the `0-installation/` dir for more information
 
