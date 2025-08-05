@@ -48,13 +48,7 @@ Basic sequential circuits like:
 
 ### 1. Install SystemC (v2.3.1a)
 
-You can install manually or use the automated script provided.
-
-```bash
-cd scripts/
-chmod +x build.sh
-./build.sh
-```
+You can go to the `0-installation/` dir for more information
 
 ## Requirements
 
