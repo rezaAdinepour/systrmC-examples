@@ -32,7 +32,7 @@ To run the program, use:
 
 To compile and run any SystemC program with a single script:
 
-### 1. Open the `compile_and_run.sh` file
+### 1. Open the `build.sh` file
 
 ### 2. Edit the following line to match your program:
 
@@ -43,13 +43,13 @@ OUTPUT_FILE="my_output"
 ### 3. Make the script executable (you only need to do this once):
 
 ```bash
-chmod +x compile_and_run.sh
+chmod +x build.sh
 ```
 
 ### 4. Run the script:
 
 ```bash
-./compile_and_run.sh
+./build.sh
 ```
 
 The script will:
