@@ -1,0 +1,30 @@
+---------------------------------------
+
+        SystemC 2.3.1-Accellera --- Aug  5 2025 08:42:50
+        Copyright (c) 1996-2014 by all Contributors,
+        ALL RIGHTS RESERVED
+
+Info: (I703) tracing timescale unit set: 1 ns (waveform.vcd)
+0 s - Consumer received: 3
+5 ns - Consumer received: 4
+10 ns - Consumer received: 5
+15 ns - Consumer received: 6
+20 ns - Consumer received: 7
+25 ns - Consumer received: 8
+30 ns - Consumer received: 9
+35 ns - Consumer received: 10
+40 ns - Consumer received: 11
+45 ns - Consumer received: 12
+50 ns - Consumer received: 13
+55 ns - Consumer received: 14
+60 ns - Consumer received: 15
+65 ns - Consumer received: 16
+70 ns - Consumer received: 17
+75 ns - Consumer received: 18
+80 ns - Consumer received: 19
+85 ns - Consumer received: 20
+90 ns - Consumer received: 21
+95 ns - Consumer received: 22
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+---------------------------------------
