@@ -1,34 +1,54 @@
 #!/bin/bash
 
-# ========== USER CONFIGURATION ==========
-OUTPUT_FILE="adder_test"   # Name of the compiled output binary
-# ========================================
+# ===== USER CONFIGURATION =====
+OUTPUT_FILE="adder_test"   # Name of the compiled binary
+# ==============================
 
-# Detect system architecture
+# Detect architecture
 ARCH=$(uname -m)
-
-echo "🔍 Detecting architecture and compiling source files..."
-
-# Determine library path
 if [[ "$ARCH" == "x86_64" ]]; then
     SYSTEMC_LIB="$SYSTEMC_HOME/lib-linux64"
 elif [[ "$ARCH" == "i686" || "$ARCH" == "i386" ]]; then
     SYSTEMC_LIB="$SYSTEMC_HOME/lib-linux"
 else
-    echo "❌ Unsupported architecture: $ARCH"
+    echo "Unsupported architecture: $ARCH"
     exit 1
 fi
 
-# Compile all .cpp files in the current directory
+# Find all .cpp files in current directory
 CPP_FILES=(*.cpp)
+CPP_COUNT=${#CPP_FILES[@]}
 
-g++ -std=c++98 -I. -I"$SYSTEMC_HOME/include" -L. -L"$SYSTEMC_LIB" \
-    -Wl,-rpath="$SYSTEMC_LIB" -o "$OUTPUT_FILE" "${CPP_FILES[@]}" -lsystemc -lm
-
-# Run if successful
-if [[ -f "$OUTPUT_FILE" ]]; then
-    echo "✅ Compilation successful. Running '$OUTPUT_FILE'..."
-    ./"$OUTPUT_FILE"
-else
-    echo "❌ Compilation failed."
+# Check if any .cpp files exist
+if [[ $CPP_COUNT -eq 0 ]]; then
+    echo "No .cpp files found in the current directory."
+    exit 1
 fi
+
+# Info message
+echo "Found $CPP_COUNT source file(s): ${CPP_FILES[*]}"
+echo "Compiling into: $OUTPUT_FILE"
+
+# Build compile command
+CMD=(
+    g++ -std=c++98
+    -I. -I"$SYSTEMC_HOME/include"
+    -L. -L"$SYSTEMC_LIB"
+    -Wl,-rpath="$SYSTEMC_LIB"
+    -o "$OUTPUT_FILE"
+    "${CPP_FILES[@]}"
+    -lsystemc -lm
+)
+
+# Run the command
+"${CMD[@]}"
+STATUS=$?
+
+if [[ $STATUS -ne 0 ]]; then
+    echo "Compilation failed."
+    exit 1
+fi
+
+# Run the output binary
+echo "Compilation successful. Running: ./$OUTPUT_FILE"
+./"$OUTPUT_FILE"
