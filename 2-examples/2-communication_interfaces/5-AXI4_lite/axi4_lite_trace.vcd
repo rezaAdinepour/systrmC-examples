@@ -1,0 +1,185 @@
+$date
+     Aug 05, 2025       16:36:07
+$end
+
+$version
+ SystemC 2.3.1-Accellera --- Aug  5 2025 08:42:50
+$end
+
+$timescale
+     1 ns
+$end
+
+$scope module SystemC $end
+$var wire    1  aaaaa  clk       $end
+$var wire    1  aaaab  awvalid       $end
+$var wire    1  aaaac  awready       $end
+$var wire    1  aaaad  wvalid       $end
+$var wire    1  aaaae  wready       $end
+$var wire    1  aaaaf  bvalid       $end
+$var wire    1  aaaag  bready       $end
+$var wire    1  aaaah  arvalid       $end
+$var wire    1  aaaai  arready       $end
+$var wire    1  aaaaj  rvalid       $end
+$var wire    1  aaaak  rready       $end
+$var wire   32  aaaal  awaddr [31:0]  $end
+$var wire   32  aaaam  wdata [31:0]  $end
+$var wire   32  aaaan  rdata [31:0]  $end
+$upscope $end
+$enddefinitions  $end
+
+$comment
+All initial values are dumped below at time 0 sec = 0 timescale units.
+$end
+
+$dumpvars
+1aaaaa
+1aaaab
+1aaaac
+1aaaad
+0aaaae
+0aaaaf
+1aaaag
+0aaaah
+0aaaai
+0aaaaj
+0aaaak
+b10000 aaaal
+b1011111011101111 aaaam
+b0 aaaan
+$end
+
+#5
+0aaaaa
+
+#10
+1aaaaa
+0aaaab
+0aaaac
+1aaaae
+
+#15
+0aaaaa
+
+#20
+1aaaaa
+0aaaad
+0aaaae
+1aaaaf
+
+#25
+0aaaaa
+
+#30
+1aaaaa
+0aaaaf
+0aaaag
+
+#35
+0aaaaa
+
+#40
+1aaaaa
+1aaaah
+1aaaai
+1aaaak
+
+#45
+0aaaaa
+
+#50
+1aaaaa
+0aaaah
+0aaaai
+1aaaaj
+b1011111011101111 aaaan
+
+#55
+0aaaaa
+
+#60
+1aaaaa
+0aaaaj
+0aaaak
+
+#65
+0aaaaa
+
+#70
+1aaaaa
+
+#75
+0aaaaa
+
+#80
+1aaaaa
+
+#85
+0aaaaa
+
+#90
+1aaaaa
+
+#95
+0aaaaa
+
+#100
+1aaaaa
+
+#105
+0aaaaa
+
+#110
+1aaaaa
+
+#115
+0aaaaa
+
+#120
+1aaaaa
+
+#125
+0aaaaa
+
+#130
+1aaaaa
+
+#135
+0aaaaa
+
+#140
+1aaaaa
+
+#145
+0aaaaa
+
+#150
+1aaaaa
+
+#155
+0aaaaa
+
+#160
+1aaaaa
+
+#165
+0aaaaa
+
+#170
+1aaaaa
+
+#175
+0aaaaa
+
+#180
+1aaaaa
+
+#185
+0aaaaa
+
+#190
+1aaaaa
+
+#195
+0aaaaa
+
