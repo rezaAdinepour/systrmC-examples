@@ -60,4 +60,10 @@ The script will:
 
 * Compile the program with `g++`
 
-* Run the resulting binary
+* Run the resulting binary.
+
+* Output of each run is saved in the `logs/` directory with a timestamp.
+
+    + Example: `logs/output_2025-08-05_14-30-22.log`
+
+    + If your SystemC simulation generates a `waveform.vcd` file, it will be automatically opened in GTKWave (if installed).
