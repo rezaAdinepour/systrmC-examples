@@ -1,0 +1,170 @@
+$date
+     Aug 05, 2025       16:22:41
+$end
+
+$version
+ SystemC 2.3.1-Accellera --- Aug  5 2025 08:42:50
+$end
+
+$timescale
+     1 ns
+$end
+
+$scope module SystemC $end
+$var wire    1  aaaaa  clk       $end
+$var wire    1  aaaab  req1       $end
+$var wire    1  aaaac  grant1       $end
+$var wire    1  aaaad  req2       $end
+$var wire    1  aaaae  grant2       $end
+$var wire    4  aaaaf  dev_addr [3:0]  $end
+$var wire    8  aaaag  dev_data_out [7:0]  $end
+$var wire    8  aaaah  dev_data_in [7:0]  $end
+$upscope $end
+$enddefinitions  $end
+
+$comment
+All initial values are dumped below at time 0 sec = 0 timescale units.
+$end
+
+$dumpvars
+1aaaaa
+0aaaab
+0aaaac
+0aaaad
+0aaaae
+b0 aaaaf
+b0 aaaag
+b0 aaaah
+$end
+
+#3
+0aaaaa
+
+#5
+1aaaaa
+
+#8
+0aaaaa
+
+#10
+1aaaaa
+1aaaab
+1aaaac
+
+#13
+0aaaaa
+
+#15
+1aaaaa
+
+#18
+0aaaaa
+
+#20
+1aaaaa
+0aaaab
+0aaaac
+1aaaad
+1aaaae
+
+#23
+0aaaaa
+
+#25
+1aaaaa
+
+#28
+0aaaaa
+
+#30
+1aaaaa
+0aaaad
+0aaaae
+
+#33
+0aaaaa
+
+#35
+1aaaaa
+
+#38
+0aaaaa
+
+#40
+1aaaaa
+
+#43
+0aaaaa
+
+#45
+1aaaaa
+1aaaad
+1aaaae
+b1 aaaaf
+b10110010 aaaag
+
+#48
+0aaaaa
+
+#50
+1aaaaa
+
+#53
+0aaaaa
+
+#55
+1aaaaa
+0aaaad
+0aaaae
+
+#58
+0aaaaa
+
+#60
+1aaaaa
+
+#63
+0aaaaa
+
+#65
+1aaaaa
+
+#68
+0aaaaa
+
+#70
+1aaaaa
+
+#73
+0aaaaa
+
+#75
+1aaaaa
+
+#78
+0aaaaa
+
+#80
+1aaaaa
+
+#83
+0aaaaa
+
+#85
+1aaaaa
+
+#88
+0aaaaa
+
+#90
+1aaaaa
+
+#93
+0aaaaa
+
+#95
+1aaaaa
+
+#98
+0aaaaa
+

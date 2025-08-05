@@ -1,0 +1,14 @@
+---------------------------------------
+
+        SystemC 2.3.1-Accellera --- Aug  5 2025 08:42:50
+        Copyright (c) 1996-2014 by all Contributors,
+        ALL RIGHTS RESERVED
+
+Info: (I703) tracing timescale unit set: 1 ns (waveform.vcd)
+5 ns - Wrote 170 to REG[0]
+15 ns - Wrote 85 to REG[1]
+30 ns - Read REG_A = 170
+35 ns - Read REG_B = 85
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+---------------------------------------
