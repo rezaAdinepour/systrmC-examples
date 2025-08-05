@@ -7,20 +7,18 @@ SC_MODULE(hello_world)
 {
     SC_CTOR(hello_world)
     {
-        /* nothing in constructor */
+        SC_THREAD(print_message);
     }
-    void start()
+    void print_message()
     {
-        cout << "=== Hello World from SystemC environment === \n";
+        cout << "=== Hello World from SystemC environment ===" << endl;
     }
 };
 
 /* sc_main in top level function like in C++ main */
 int sc_main(int argc, char* argv[])
 {
-    hello_world hello("HELLO");
-
-    /* Print the hello world */
-    hello.start();
+    hello_world hello("hello_instance");
+    sc_start();  // Start the simulation
     return 0;
 }
