@@ -1,0 +1,45 @@
+---------------------------------------
+
+        SystemC 2.3.1-Accellera --- Aug  5 2025 08:42:50
+        Copyright (c) 1996-2014 by all Contributors,
+        ALL RIGHTS RESERVED
+0 s - Producer wrote: 0
+5 ns - Producer wrote: 1
+5 ns - Consumer read:  0
+10 ns - Producer wrote: 2
+10 ns - Consumer read:  1
+15 ns - Producer wrote: 3
+15 ns - Consumer read:  2
+20 ns - Producer wrote: 4
+20 ns - Consumer read:  3
+25 ns - Producer wrote: 5
+25 ns - Consumer read:  4
+30 ns - Producer wrote: 6
+30 ns - Consumer read:  5
+35 ns - Producer wrote: 7
+35 ns - Consumer read:  6
+40 ns - Producer wrote: 8
+40 ns - Consumer read:  7
+45 ns - Producer wrote: 9
+45 ns - Consumer read:  8
+50 ns - Producer wrote: 10
+50 ns - Consumer read:  9
+55 ns - Producer wrote: 11
+55 ns - Consumer read:  10
+60 ns - Producer wrote: 12
+60 ns - Consumer read:  11
+65 ns - Producer wrote: 13
+65 ns - Consumer read:  12
+70 ns - Producer wrote: 14
+70 ns - Consumer read:  13
+75 ns - Producer wrote: 15
+75 ns - Consumer read:  14
+80 ns - Producer wrote: 16
+80 ns - Consumer read:  15
+85 ns - Producer wrote: 17
+85 ns - Consumer read:  16
+90 ns - Producer wrote: 18
+90 ns - Consumer read:  17
+95 ns - Producer wrote: 19
+95 ns - Consumer read:  18
+---------------------------------------
