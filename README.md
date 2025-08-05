@@ -8,35 +8,39 @@ A comprehensive collection of SystemC examples progressing from foundational mod
 
 ## Contents
 
-### Step 1: Foundational Modules
-Basic building blocks written using `SC_MODULE`, each in its own header/source/testbench:
+### Section 1: Foundational Modules
+Basic building blocks:
+- adder
 - MUX (2:1)
 - DEMUX (1:2)
 - Comparator
 - Decoder (2-to-4)
-- Encoder (4-to-2)
 - Priority Encoder (4-to-2)
+
+
+### Section 2: Sequential Circuits
+Basic sequential circuits like:
+
+- D-flipflop
+- Serial in Parallel Out (SIPO) Register
 - Up-Down Counter
 - Shift Register
 - FSM: Sequence Detector
 
-### Step 2: Communication Interfaces
-Modeling various synchronization and communication mechanisms:
-- Ready/Valid Handshake
-- FIFO Channel (blocking and non-blocking)
-- Multi-stage FIFO Stream Pipeline
+### Section 3: Communication Interfaces
+* Modeling various synchronization and communication mechanisms:
+    - Ready/Valid Handshake
+    - FIFO Channel (blocking and non-blocking)
+    - Multi-stage FIFO Stream Pipeline
 
-### Step 3: Memory-Mapped I/O System
-Simulating register access via memory-mapped interfaces:
-- Register Devices with Address Decoding
-- Bus Arbiter (multiple master access)
+* Memory-Mapped I/O System
+    - Register Devices with Address Decoding
+    - Bus Arbiter (multiple master access)
 
-### Step 4: AXI4-Lite Bus System
-A complete simulation of AXI4-lite memory-mapped components:
-- AXI4-Lite Master
-- AXI4-Lite Slave Memory
-- Basic Read/Write Transactions
-- VCD waveform tracing via `gtkwave`
+* AXI4-Lite Bus System
+    - AXI4-Lite Master
+    - AXI4-Lite Slave Memory
+    - Basic Read/Write Transactions
 
 ---
 
