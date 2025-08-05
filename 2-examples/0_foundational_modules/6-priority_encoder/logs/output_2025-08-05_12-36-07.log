@@ -1,0 +1,18 @@
+---------------------------------------
+
+        SystemC 2.3.1-Accellera --- Aug  5 2025 08:42:50
+        Copyright (c) 1996-2014 by all Contributors,
+        ALL RIGHTS RESERVED
+
+Info: (I703) tracing timescale unit set: 1 ns (waveform.vcd)
+IN=0000 → OUT=0 VALID=0
+IN=0001 → OUT=0 VALID=1
+IN=0010 → OUT=0 VALID=1
+IN=0100 → OUT=0 VALID=1
+IN=1000 → OUT=0 VALID=1
+IN=0011 → OUT=0 VALID=1
+IN=1010 → OUT=0 VALID=1
+IN=1111 → OUT=0 VALID=1
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+---------------------------------------
