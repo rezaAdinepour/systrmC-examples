@@ -1,32 +1,54 @@
 #!/bin/bash
 
-# ========== USER CONFIGURATION ==========
-SRC_FILE="hello.cpp"       # Name of the input SystemC source file
-OUTPUT_FILE="hello"        # Name of the compiled output binary
-# ========================================
+# ===== USER CONFIGURATION =====
+OUTPUT_FILE="systemc_app"   # Name of the compiled binary
+# ==============================
 
-# Detect system architecture
+# Detect architecture
 ARCH=$(uname -m)
-
-echo "Compiling '$SRC_FILE' into '$OUTPUT_FILE'..."
-
 if [[ "$ARCH" == "x86_64" ]]; then
-    echo "Detected 64-bit system."
-    g++ -std=c++98 -I. -I$SYSTEMC_HOME/include -L. -L$SYSTEMC_HOME/lib-linux64 \
-        -Wl,-rpath=$SYSTEMC_HOME/lib-linux64 -o "$OUTPUT_FILE" "$SRC_FILE" -lsystemc -lm
+    SYSTEMC_LIB="$SYSTEMC_HOME/lib-linux64"
 elif [[ "$ARCH" == "i686" || "$ARCH" == "i386" ]]; then
-    echo "Detected 32-bit system."
-    g++ -std=c++98 -I. -I$SYSTEMC_HOME/include -L. -L$SYSTEMC_HOME/lib-linux \
-        -Wl,-rpath=$SYSTEMC_HOME/lib-linux -o "$OUTPUT_FILE" "$SRC_FILE" -lsystemc -lm
+    SYSTEMC_LIB="$SYSTEMC_HOME/lib-linux"
 else
     echo "Unsupported architecture: $ARCH"
     exit 1
 fi
 
-# Run the binary if compilation succeeded
-if [[ -f "$OUTPUT_FILE" ]]; then
-    echo "Compilation successful. Running '$OUTPUT_FILE'..."
-    ./"$OUTPUT_FILE"
-else
-    echo "Compilation failed."
+# Find all .cpp files in current directory
+CPP_FILES=(*.cpp)
+CPP_COUNT=${#CPP_FILES[@]}
+
+# Check if any .cpp files exist
+if [[ $CPP_COUNT -eq 0 ]]; then
+    echo "No .cpp files found in the current directory."
+    exit 1
 fi
+
+# Info message
+echo "Found $CPP_COUNT source file(s): ${CPP_FILES[*]}"
+echo "Compiling into: $OUTPUT_FILE"
+
+# Build compile command
+CMD=(
+    g++ -std=c++98
+    -I. -I"$SYSTEMC_HOME/include"
+    -L. -L"$SYSTEMC_LIB"
+    -Wl,-rpath="$SYSTEMC_LIB"
+    -o "$OUTPUT_FILE"
+    "${CPP_FILES[@]}"
+    -lsystemc -lm
+)
+
+# Run the command
+"${CMD[@]}"
+STATUS=$?
+
+if [[ $STATUS -ne 0 ]]; then
+    echo "Compilation failed."
+    exit 1
+fi
+
+# Run the output binary
+echo "Compilation successful. Running: ./$OUTPUT_FILE"
+./"$OUTPUT_FILE"
