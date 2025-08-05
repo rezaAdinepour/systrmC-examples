@@ -1,32 +1,59 @@
 #!/bin/bash
 
 # ========== USER CONFIGURATION ==========
-SRC_FILE="hello_world.cpp"       # Name of the input SystemC source file
-OUTPUT_FILE="hello_world"        # Name of the compiled output binary
+OUTPUT_FILE="hello_world"          # Name of the compiled output binary
+LOG_DIR="./logs"                  # Directory for saving logs
+GTKWAVE_TRACE="waveform.vcd"      # Trace file to open in GTKWave (optional)
 # ========================================
 
 # Detect system architecture
 ARCH=$(uname -m)
 
-echo "Compiling '$SRC_FILE' into '$OUTPUT_FILE'..."
+echo "Detecting architecture and compiling source files..."
 
+# Determine SystemC library path
 if [[ "$ARCH" == "x86_64" ]]; then
-    echo "Detected 64-bit system."
-    g++ -std=c++98 -I. -I$SYSTEMC_HOME/include -L. -L$SYSTEMC_HOME/lib-linux64 \
-        -Wl,-rpath=$SYSTEMC_HOME/lib-linux64 -o "$OUTPUT_FILE" "$SRC_FILE" -lsystemc -lm
+    SYSTEMC_LIB="$SYSTEMC_HOME/lib-linux64"
 elif [[ "$ARCH" == "i686" || "$ARCH" == "i386" ]]; then
-    echo "Detected 32-bit system."
-    g++ -std=c++98 -I. -I$SYSTEMC_HOME/include -L. -L$SYSTEMC_HOME/lib-linux \
-        -Wl,-rpath=$SYSTEMC_HOME/lib-linux -o "$OUTPUT_FILE" "$SRC_FILE" -lsystemc -lm
+    SYSTEMC_LIB="$SYSTEMC_HOME/lib-linux"
 else
     echo "Unsupported architecture: $ARCH"
     exit 1
 fi
 
-# Run the binary if compilation succeeded
+# Create logs directory if it doesn't exist
+mkdir -p "$LOG_DIR"
+
+# Generate timestamped log filename
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+LOG_FILE="$LOG_DIR/output_$TIMESTAMP.log"
+
+# Collect all .cpp files in current directory
+CPP_FILES=(*.cpp)
+
+# Compile with warnings, debug symbols, and optimizations
+g++ -std=c++98 -Wall -g -O2 \
+    -I. -I"$SYSTEMC_HOME/include" \
+    -L. -L"$SYSTEMC_LIB" \
+    -Wl,-rpath="$SYSTEMC_LIB" \
+    -o "$OUTPUT_FILE" "${CPP_FILES[@]}" -lsystemc -lm
+
+# Run and save output to log if compilation succeeded
 if [[ -f "$OUTPUT_FILE" ]]; then
     echo "Compilation successful. Running '$OUTPUT_FILE'..."
-    ./"$OUTPUT_FILE"
+    echo "Output will be saved to: $LOG_FILE"
+    echo "Timestamp: $TIMESTAMP"
+    echo "---------------------------------------" | tee "$LOG_FILE"
+    ./"$OUTPUT_FILE" 2>&1 | tee -a "$LOG_FILE"
+    echo "---------------------------------------" >> "$LOG_FILE"
+
+    # Open waveform trace in GTKWave if it exists
+    if [[ -f "$GTKWAVE_TRACE" ]]; then
+        echo "Opening waveform: $GTKWAVE_TRACE"
+        gtkwave "$GTKWAVE_TRACE" &
+    else
+        echo "No trace file ($GTKWAVE_TRACE) found."
+    fi
 else
     echo "Compilation failed."
 fi

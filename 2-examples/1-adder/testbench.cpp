@@ -1,8 +1,6 @@
-/* testbench.cpp */
-
 #include "testbench.h"
 
-Testbench::Testbench(sc_module_name name) : sc_module(name)
+Testbench::Testbench(sc_module_name name) : sc_module(name) 
 {
     adder = new Adder("adder");
     adder->a(sig_a);
@@ -17,8 +15,17 @@ Testbench::~Testbench()
     delete adder;
 }
 
-void Testbench::stimulus() 
+void Testbench::stimulus()
 {
+    // === VCD Trace Setup ===
+    sc_trace_file* tf = sc_create_vcd_trace_file("waveform");
+    tf->set_time_unit(1, SC_NS); // optional: sets time resolution to nanoseconds
+
+    sc_trace(tf, sig_a, "a");
+    sc_trace(tf, sig_b, "b");
+    sc_trace(tf, sig_sum, "sum");
+
+    // === Stimuli ===
     sig_a.write(10);
     sig_b.write(5);
     wait(1, SC_NS);
@@ -29,5 +36,8 @@ void Testbench::stimulus()
     wait(1, SC_NS);
     cout << "20 + 15 = " << sig_sum.read() << endl;
 
-    sc_stop();
+    // === Close trace file ===
+    sc_close_vcd_trace_file(tf);
+
+    sc_stop();  // End simulation
 }
