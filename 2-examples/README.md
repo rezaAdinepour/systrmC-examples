@@ -67,3 +67,10 @@ The script will:
     + Example: `logs/output_2025-08-05_14-30-22.log`
 
     + If your SystemC simulation generates a `waveform.vcd` file, it will be automatically opened in GTKWave (if installed).
+
+
+You must have GTKWave installed, If you don't have install it, you can install as bellow:
+
+```bash
+sudo apt install gtkwave
+```
