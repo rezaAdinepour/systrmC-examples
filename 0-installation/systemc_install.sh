@@ -47,7 +47,7 @@ if ! grep -q "export SYSTEMC_HOME=" "$SHELL_CONFIG"; then
     } >> "$SHELL_CONFIG"
     echo "Environment variables added."
 else
-    echo "ℹ️ Environment variables already present in $SHELL_CONFIG"
+    echo "Environment variables already present in $SHELL_CONFIG"
 fi
 
 echo "=== [8/8] Reloading shell configuration ==="
