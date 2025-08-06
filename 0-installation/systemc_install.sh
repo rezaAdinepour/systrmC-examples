@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e  # Exit on error
+set -e
 
 # === CONFIGURATION ===
 SYSTEMC_VERSION="2.3.1a"
