@@ -58,12 +58,6 @@ You can go to the `0-installation/` dir for more information
 * Linux OS (Ubuntu recommended)
 
 
-## License
-This project is open source and licensed under the MIT License.
-
-
-
-
 ## Contributions
 
 Contributions are welcome and appreciated!
